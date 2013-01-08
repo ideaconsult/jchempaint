@@ -3,16 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openscience.cdk</groupId>
   <artifactId>jchempaint-all</artifactId>
-  <version>3.3-1209</version>
+  <version>3.3-1210</version>
   <packaging>pom</packaging>
 
   <name>JChemPaint releases</name>
    <url>http://jchempaint.github.com</url>
    <dependencies>
-   <!-- 
-   As in
-   https://github.com/JChemPaint/jchempaint/wiki/List-of-CDK-modules-needed-by-JCP-HEAD
-    -->
    	<dependency>
    		<groupId>org.openscience.cdk</groupId>
    		<artifactId>cdk-core</artifactId>
@@ -115,15 +111,19 @@
    		<artifactId>commons-cli</artifactId>
    		<version>1.0</version>
    		<scope>compile</scope>
+	</dependency>
+<!-- not sure which repo it could be downloaded form and what it is used for.  
+The CDK uses jni-inchi and it is fine for the non-applet versions
    	<dependency>
    		<groupId>org.iupac</groupId>
    		<artifactId>inchi-nestedvm</artifactId>
    		<version>1.0.2</version>
    		<scope>compile</scope>
    	</dependency>     	 	
-   </dependencies>
+-->   
+</dependencies>
    <distributionManagement>
-
+  
     <snapshotRepository>
   		<id>ambit-plovdiv-snapshots</id>
   		<url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/snapshots</url>
@@ -134,7 +134,8 @@
         <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/thirdparty</url>
     </repository>
   </distributionManagement>
-  <inceptionYear>1999</inceptionYear>
+  
+<inceptionYear>1999</inceptionYear>
 
   <repositories>
     <repository>
@@ -142,20 +143,17 @@
       <name>Java.net Repository for Maven</name>
       <url>http://download.java.net/maven/2/</url>
     </repository>
-  </repositories>
-
-  <repositories>
     <repository>
       <id>rwst-releases</id>
       <releases>
       	<enabled>true</enabled>
-	<updatepolicy>always</updatepolicy>
-	<checksumpolicy>fail</checksumpolicy>
+	<updatePolicy>always</updatePolicy>
+	<checksumPolicy>fail</checksumPolicy>
       </releases>
       <snapshots>
       	<enabled>false</enabled>
-	<updatepolicy>always</updatepolicy>
-	<checksumpolicy>warn</checksumpolicy>
+	<updatePolicy>always</updatePolicy>
+	<checksumPolicy>warn</checksumPolicy>
       </snapshots>
       <name>JCP Repository for Maven</name>
       <url>https://raw.github.com/rwst/mavenrepo/master/releases</url>
@@ -171,16 +169,17 @@
   </pluginRepositories>
 
   
-    <!--modules>
+    <modules>
     <module>jchempaint-application</module>
-  < Not sure if it make sense to deploy an applet into a maven repo. 	
+  <!-- Not sure if it make sense to deploy an applet into a maven repo. 	
     <module>jchempaint-applet</module>
-
+-->
+   <!-- Nodeps module is used when embedding JCP into  external applications -->	
     <module>jchempaint-nodeps</module>
-   </modules-->
+   </modules>
 
   <properties>
-  	<cdk.version>1.4.11</cdk.version>
+  	<cdk.version>1.4.16</cdk.version>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
